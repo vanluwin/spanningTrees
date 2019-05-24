@@ -1,2 +1,1 @@
-# spanningTrees
-Implementation of the Sorensen e Janssens algorithm 
+# Implementation of the Sorensen e Janssens algorithm 
