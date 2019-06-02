@@ -1,12 +1,45 @@
 # Uma implementação do algoritmo de Sorensen e Jassens
 
-Ativade realizada durante a disciplina DCA0214 - Estrutura de dados
+Implementações realizadas durante a disciplina DCA0214 - Estrutura de dados no semestre 2019.1
 
-## Compilar
+## Gerador de grafos
 
-Para compilar o projeto em sistemas baseados no Unix com o compilador g++ instalado faça:
+Para a utilização do gerador de grafos tanto completo quanto grid primeiramente se faz necessário compliar os arquivos fonte, o que pode ser conseguido fazendo:
+
+```console
+user@computer:~/sapanningTrees $ cd generators
+user@computer:~/sapanningTrees/generators $ make
+```
+
+Os geradores terão como saída um arquivo com extensão *.in* , nomeados da seguinte forma: *6grid.in* significa uma instância com 6 vértices do tipo grafo grid; *5completo.in* significa uma instância com 5 vértices do tipo grafo completo. Um arquivo de instância tem o seguinte formato: a primeira linha contém o valor *n* da quantidade de vértices, seguido por uma linha para cada aresta, no formato: *i j p*, onde 1 <= *i* <= *n*  e 1 <= *j* <= *n* são os vértices terminais a referida aresta, e *p* é o seu peso.
+
+### Gerando um grafo completo
+
+Para gerar uma instância de grafo completo execute o comando a seguir substituindo **vertices** pelo número de vértices desejado:
+
+```console
+user@computer:~/sapanningTrees/generators $ ./completeGraph.out vertices
+```
+
+### Gerando um grafo grid
+
+Para gerar uma instância de grafo grid execute o comando a seguir substituindo **rows** e **cols** pelo número de linhas e de colunas que o grafo deve possuir:
+
+```console
+user@computer:~/sapanningTrees/generators $ ./gridGraph.out rows cols
+```
+
+## Árvores geradoras
+
+Primeiramente se faz necessário compilar os arquivos fontes que serão utilizados para encontrar as árvores geradoras, o que pode ser conseguido fazendo:
 
 ```console
 user@computer:~/sapanningTrees $ cd src
-user@computer:~/sapanningTrees $ make
+user@computer:~/sapanningTrees/src $ make
+```
+
+Para obter as melhores árvores geradoras de um grafo execute o comando a seguir substituindo **graph** pelo caminho de uma instância de grafo:
+
+```console
+user@computer:~/sapanningTrees/src $ ./spanningTrees.out graph
 ```
