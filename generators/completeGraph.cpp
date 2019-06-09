@@ -22,13 +22,12 @@ int main(int argc, char **argv) {
     ofstream file;
     file.open(fileName);
 
-    
     file << argv[1] << endl;
 
-    for(int i = 1; i < atoi(argv[1]); i++) {
-        for(int j = i + 1; j <= atoi(argv[1]); j++) {
+    for(int i = 0; i < atoi(argv[1]); i++) {
+        for(int j = i + 1; j < atoi(argv[1]); j++) {
             file << i << " " << j << " " << rand() % 100 + 1 << endl;
-        }     
+        }  
     }
 
     file.close();

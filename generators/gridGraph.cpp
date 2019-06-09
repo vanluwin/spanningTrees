@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     file << vertices << endl;
 
     int matrix[rows][cols];
-    int k = 1;
+    int k = 0;
     for(int i = 0; i < rows; i++) {
         for(int j = 0; j < cols; j++) {
             matrix[i][j] = k;
@@ -40,7 +40,6 @@ int main(int argc, char **argv) {
         for(int j = 0; j < cols; j++) {
             if (j + 1 < cols)
                 file << matrix[i][j] << " " << matrix[i][j+1] << " " << rand() % 100 + 1 << endl;
-            
             if (i + 1 < rows)
                 file << matrix[i][j] << " "  << matrix[i+1][j] << " " << rand() % 100 + 1 << endl;
         }
