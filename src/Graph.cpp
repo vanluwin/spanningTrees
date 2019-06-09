@@ -255,7 +255,5 @@ Graph kruskal(Graph *graph) {
 
     }
 
-    //Graph mst(graph->getVertices(), result, e);
-
     return Graph(graph->getVertices(), result, e);
 }
