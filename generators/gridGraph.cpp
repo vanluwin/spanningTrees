@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     ofstream file;
     file.open(fileName);
     
-    file << vertices << endl;
+    file << rows << endl << cols << endl;
 
     int matrix[rows][cols];
     int k = 0;
