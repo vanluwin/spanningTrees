@@ -29,6 +29,14 @@ Para gerar uma instância de grafo grid execute o comando a seguir substituindo 
 user@computer:~/sapanningTrees/generators $ ./gridGraph.out rows cols
 ```
 
+## Plotando um grafo
+
+Em adicição ao gerador de grafos está disponivel também um programa escrito em python para plotar instâncias de grafos a partir de arquivos de instancia *.in*, para utilizar o script tenha instalado os seguintes módulos python: [networkx](https://networkx.github.io/documentation/stable/install.html) e [matplotlib](https://matplotlib.org/users/installing.html). O plot de um grafo pode ser feito com o seguinte comando a partir do diretórito srcipts deste repositório, substituindo **grafo** pelo caminho para uma instância de grafo:
+
+```console
+user@computer:~/sapanningTrees/scripts $ python3 grafo
+```
+
 ## Árvores geradoras
 
 Primeiramente se faz necessário compilar os arquivos fontes que serão utilizados para encontrar as árvores geradoras, o que pode ser conseguido fazendo:
