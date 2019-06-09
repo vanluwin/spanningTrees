@@ -1,4 +1,4 @@
-# Uma implementação do algoritmo de Sorensen e Jassens
+# Uma implementação do algoritmo de Sorensen and Janssens
 
 Implementações realizadas durante a disciplina DCA0214 - Estrutura de dados no semestre 2019.1
 
