@@ -9,4 +9,4 @@ gridGraph.o: gridGraph.cpp
 	g++ -std=c++11 -c gridGraph.cpp
 
 clean:
-	rm *.o completeGraph.o gridGraph.o
+	rm *.o *.out
