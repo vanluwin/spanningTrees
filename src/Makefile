@@ -1,4 +1,4 @@
-output: main.o MinHeap.o Graph.o
+output: main.o MinHeap.o Graph.o 
 	g++ -std=c++11 main.o MinHeap.o Graph.o -o output.out
 
 main.o: main.cpp

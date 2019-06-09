@@ -1,21 +1,25 @@
-#include "MinHeap.hpp"
-#include "MinHeap.cpp"
 #include "Graph.hpp"
 
 int main(int argc, char **argv) {
-    int arr[] = { 35, 33, 42, 10, 14, 19, 27, 44, 26, 31 };
+    if(argc < 2) {
+        cout << "Argumentos faltando!\nUso: " << argv[0] << " <grafo>\n";
+        exit(0);
+    } 
 
-    MinHeap<int> myHeap(10);
+    //int arr[] = { 35, 33, 42, 10, 14, 19, 27, 44, 26, 31 };
 
-    for(int elem : arr) {
-        myHeap.insert(elem);
-    }
+    Graph graph(argv[1]);
+    //Graph graph("../instances/grid/12grid.in", 7);
 
-    //cout << "\nMy Heap: " << myHeap << "\n\n";
+    //cout << "\nGraph: " << endl << graph << endl;
+    cout << "Calculando MST para um grafo com " << 
+        graph.getVertices() <<  " vertices e " << 
+        graph.getEdges() << " arestas.."
+    << endl;
 
-    Graph myGraph("../completo/7completo.in");
+    Graph mst = kruskal(&graph);
 
-    cout << endl << myGraph << endl;
+    cout << "\nMST:\n" << mst << endl;
 
     return 0;
 }
