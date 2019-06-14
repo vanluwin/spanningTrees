@@ -1,6 +1,6 @@
-# Uma implementação do algoritmo de Sorensen and Janssens
+# Uma implementação do algoritmo de Sorensen e Janssens
 
-Implementações realizadas durante a disciplina DCA0214 - Estrutura de dados no semestre 2019.1
+Trabalho realizado durante a disciplina DCA0214 - Estrutura de dados no semestre 2019.1 com o objeto de implementar o algoritmo proposto no artigo de [SORENSEN, Kenneth  e  JANSSENS, Gerrit K](http://www.scielo.br/scielo.php?pid=S0101-74382005000200004&script=sci_abstract).
 
 ## Gerador de grafos
 
@@ -37,17 +37,101 @@ Em adicição ao gerador de grafos está disponivel também um programa escrito 
 user@computer:~/sapanningTrees/scripts $ python3 grafo
 ```
 
-## Árvores geradoras
+## Árvore geradora mínima
+
+Primeiramente se faz necessário compilar os arquivos fontes que serão utilizados para encontrar a árvore geradora mínima, o que pode ser conseguido fazendo:
+
+```console
+user@computer:~/sapanningTrees $ cd src
+user@computer:~/sapanningTrees/src $ make minimumSpanningTree
+```
+
+Para obter a árvore geradora mínima de um grafo execute o comando a seguir substituindo **graph** pelo caminho de uma instância de grafo:
+
+```console
+user@computer:~/sapanningTrees/src $ ./minimumSpanningTree.out graph
+```
+
+Será encaminhado para *stdout* um resultado similar à:
+
+```text
+Grafo
+ 2  3  11
+ 4  3  12
+ 1  2  13
+ 0  3  15
+ 1  3  19
+ 0  1  20
+ 0  2  22
+ 1  4  26
+ 0  4  28
+ 2  4  30
+
+Arvore geradora minima
+ 2  3  11
+ 4  3  12
+ 1  2  13
+ 0  3  15
+
+```
+
+## Todas as árvores geradoras de um grafo
 
 Primeiramente se faz necessário compilar os arquivos fontes que serão utilizados para encontrar as árvores geradoras, o que pode ser conseguido fazendo:
 
 ```console
 user@computer:~/sapanningTrees $ cd src
-user@computer:~/sapanningTrees/src $ make
+user@computer:~/sapanningTrees/src $ make spanningTrees
 ```
 
-Para obter as melhores árvores geradoras de um grafo execute o comando a seguir substituindo **graph** pelo caminho de uma instância de grafo:
+Para obter as árvores geradoras de um grafo execute o comando a seguir substituindo **graph** pelo caminho de uma instância de grafo e **output** por *stdout* se desejar que o resultado seja emcaminhado para a saída padrão ou *arquivo* se desejar que a saída seja escrita em um arquivo:
 
 ```console
-user@computer:~/sapanningTrees/src $ ./spanningTrees.out graph
+user@computer:~/sapanningTrees/src $ ./minimumSpanningTree.out graph output
+```
+
+Caso escolha *stdout* será mostrado algo semelhante à:
+
+```text
+Obtendo todas as arvores geradoras para
+ 0  1  95
+ 0  2  86
+ 1  3  79
+ 2  3  75
+
+
+c[s(P)] = 240
+ 2  3  75
+ 1  3  79
+ 0  2  86
+
+
+c[s(P)] = 249
+ 2  3  75
+ 1  3  79
+ 0  1  95
+
+
+c[s(P)] = 256
+ 2  3  75
+ 0  2  86
+ 0  1  95
+
+
+c[s(P)] = 249
+ 2  3  75
+ 0  1  95
+ 1  3  79
+```
+
+Já caso escolha *arquivo* será mostrado algo semelhante à:
+
+```text
+Arvores geradoras serao salvas no arquivo allSpanningTrees
+
+Obtendo todas as arvores geradoras para
+ 0  1  95
+ 0  2  86
+ 1  3  79
+ 2  3  75
 ```
