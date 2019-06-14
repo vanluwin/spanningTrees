@@ -3,16 +3,16 @@
 // Class Constructor
 template <typename Type>
 MinHeap<Type>::MinHeap(int _heapCapacity) {
-    this->heapSize = 0;
-    this->heapCapacity = _heapCapacity;
+    heapSize = 0;
+    heapCapacity = _heapCapacity;
 
-    this->heap = new Type[this->heapCapacity];
+    heap = new Type[heapCapacity];
 }
 
 // Class Destructor
 template <typename Type>
 MinHeap<Type>::~MinHeap() {
-    delete[] this->heap;
+    delete[] heap;
 }
 
 template <typename Type>
@@ -38,24 +38,75 @@ void MinHeap<Type>::swap(Type *x, Type *y) {
 }
 
 template <typename Type>
-void MinHeap<Type>::insert(Type element) {
+void MinHeap<Type>::push(Type element, int (*compare)(Type*, Type*)) {
     // Insere o elemento no fim da heap
-    this->heapSize++;
-    int i = this->heapSize -1;
-    this->heap[i] = element;
+    heapSize++;
+    int i = heapSize -1;
+    heap[i] = element;
     
     // Verifica se a min heap foi violada e a restabelesce
-    while(i != 0 && this->heap[father(i)] > this->heap[i]) {
-        swap(&this->heap[i], &heap[father(i)]);
+    while(i != 0 && compare(&heap[father(i)], &heap[i])) {
+        swap(&heap[i], &heap[father(i)]);
         i = father(i);
     }
 }
 
 template <typename Type>
+Type MinHeap<Type>::pop() {
+    if (heapSize == 1) { 
+        heapSize--; 
+        return heap[0]; 
+    } 
+
+    // Guarda o menor o menor valor e restora a heap
+    Type root = heap[0]; 
+    heap[0] = heap[heapSize - 1]; 
+    heapSize--; 
+    heapify(0); 
+
+    return root; 
+}
+
+template <typename Type>
+void MinHeap<Type>::heapify(int i) { 
+    int l = left(i); 
+    int r = right(i); 
+
+    int smallest = i; 
+    if (l < heapSize && heap[l].getCost() < heap[i].getCost()) 
+        smallest = l; 
+    if (r < heapSize && heap[r].getCost() < heap[smallest].getCost()) 
+        smallest = r; 
+    if (smallest != i) { 
+        swap(&heap[i], &heap[smallest]); 
+        heapify(smallest); 
+    } 
+} 
+
+template <typename Type>
+bool MinHeap<Type>::empty() {
+    return heapSize == 0 ? true : false;
+}
+
+template <typename Type>
+int MinHeap<Type>::getSize() {
+    return heapSize;
+}
+
+template <typename Type>
+Type MinHeap<Type>::front() {
+    return heap[0]; 
+}
+
+template <typename Type>
 ostream& operator << (ostream &os, MinHeap<Type> &minHeap) {
-    cout << "[ ";
     for(int i = 0; i < minHeap.heapSize; i++) {
-        cout << minHeap.heap[i] << " ";
+        //cout << minHeap.heap[i].src << " -- " << 
+        //    minHeap.heap[i].dst << " " << 
+        //    minHeap.heap[i].weight 
+        //<< endl;
+        cout << minHeap.heap[i] << endl;
     }
-    cout << "]\n";
+
+    return os;
 }
