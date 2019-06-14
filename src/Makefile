@@ -1,8 +1,10 @@
-output: main.o MinHeap.o Graph.o 
-	g++ -std=c++11 main.o MinHeap.o Graph.o -o output.out
+all: minimumSpanningTree spanningTrees
 
-main.o: main.cpp
-	g++ -std=c++11 -c main.cpp
+minimumSpanningTree: minimumSpanningTree.cpp Graph.o MinHeap.o
+	g++ -std=c++11 MinHeap.o Graph.o minimumSpanningTree.cpp -o minimumSpanningTree.out
+
+spanningTrees: spanningTrees.cpp Graph.o MinHeap.o
+	g++ -std=c++11 MinHeap.o Graph.o spanningTrees.cpp -o spanningTrees.out
 
 MinHeap.o: MinHeap.hpp MinHeap.cpp
 	g++ -std=c++11 -c MinHeap.cpp
