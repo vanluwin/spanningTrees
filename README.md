@@ -34,7 +34,7 @@ user@computer:~/sapanningTrees/generators $ ./gridGraph.out rows cols
 Em adicição ao gerador de grafos está disponivel também um programa escrito em python para plotar instâncias de grafos a partir de arquivos de instancia *.in*, para utilizar o script tenha instalado os seguintes módulos python: [networkx](https://networkx.github.io/documentation/stable/install.html) e [matplotlib](https://matplotlib.org/users/installing.html). O plot de um grafo pode ser feito com o seguinte comando a partir do diretórito srcipts deste repositório, substituindo **grafo** pelo caminho para uma instância de grafo:
 
 ```console
-user@computer:~/sapanningTrees/scripts $ python3 grafo
+user@computer:~/sapanningTrees/scripts $ python3 plotGraph.py grafo
 ```
 
 ## Árvore geradora mínima
@@ -87,7 +87,7 @@ user@computer:~/sapanningTrees/src $ make spanningTrees
 Para obter as árvores geradoras de um grafo execute o comando a seguir substituindo **graph** pelo caminho de uma instância de grafo e **output** por *stdout* se desejar que o resultado seja emcaminhado para a saída padrão ou *arquivo* se desejar que a saída seja escrita em um arquivo:
 
 ```console
-user@computer:~/sapanningTrees/src $ ./minimumSpanningTree.out graph output
+user@computer:~/sapanningTrees/src $ ./spanningTrees.out graph output
 ```
 
 Caso escolha *stdout* será mostrado algo semelhante à:
